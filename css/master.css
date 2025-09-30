@@ -15,7 +15,7 @@
 }
 body {
   background-color: #dbeada;
-  background-image: url(/imgs/zoro.jpeg);
+  background-image: url(../imgs/zoro.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -254,3 +254,4 @@ footer {
   opacity: 1;
   transform: scale(1.1);
 }
+
