@@ -15,7 +15,7 @@
 }
 body {
   background-color: #dbeada;
-  background-image: url(../imgs/zoro.jpeg);
+  background-image: url(/imgs/zoro.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -173,11 +173,24 @@ form button {
   overflow-x: auto;
   scrollbar-width: thin;
 }
-.switch-container i {
+.switch-container span + i {
   color: #fff;
 }
-.switch-container input {
-  width: 100px;
+.switch-container .plus-group-holder {
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.switch-container .plus-group-holder input {
+  width: 115px;
+  border-radius: inherit;
+  border: none;
+  padding: 0 7px;
+}
+.switch-container .plus-group-btn {
+  position: absolute;
+  right: 3px;
 }
 
 .switch-container .switch {
@@ -186,6 +199,7 @@ form button {
   user-select: none;
   cursor: pointer;
   transition: var(--main-transition);
+  border-radius: inherit;
 }
 .switch-container .switch:hover,
 .switch-container .switch.active {
@@ -254,4 +268,3 @@ footer {
   opacity: 1;
   transform: scale(1.1);
 }
-

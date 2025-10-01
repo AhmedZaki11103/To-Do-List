@@ -47,7 +47,9 @@ window.addEventListener("load", function () {
 
 // ==== App ====
 //switch-container
-let switchList = document.querySelectorAll(".switch-container .switch");
+let switchList = Array.from(
+  document.querySelectorAll(".switch-container .switch")
+);
 let switchNow = "task";
 function removeActive() {
   switchList.forEach((e) => {
@@ -55,7 +57,7 @@ function removeActive() {
   });
   this.classList.add("active");
   switchNow = this.dataset.switch.toLowerCase();
-  console.log(switchNow);
+  // console.log(switchNow);
   let jsonData = localStorage.getItem("tasks");
   if (jsonData) {
     showTasks(JSON.parse(jsonData));
@@ -110,12 +112,24 @@ let groupName = "day";
 group.addEventListener("change", function () {
   groupName = this.value.toLowerCase();
 });
-let plusGroup = document.querySelector(".switch-container i");
-let plusGroupInput = document.querySelector(".switch-container input");
-plusGroup.addEventListener("click", () =>
-  plusGroupInput.classList.toggle("hidden")
-);
-let plusBtn = document.querySelector(".switch-container .plus-group-btn")
+// let plusGroup = document.querySelector(".switch-container i");
+// let plusGroupInput = document.querySelector(".switch-container input");
+// let plusBtn = document.querySelector(".switch-container .plus-group-btn");
+// plusGroup.addEventListener("click", () => {
+//   plusGroupInput.classList.toggle("hidden");
+  // plusBtn.classList.toggle("hidden");
+// });
+// plusBtn.addEventListener("click", () => {
+//   console.log(plusGroupInput.value);
+//   let last = switchList.at(-1);
+//   let newGroup = document.createElement("span");
+//   newGroup.dataset.switch = plusGroupInput.value;
+//   newGroup.innerHTML = plusGroupInput.value;
+//   newGroup.classList.add("switch");
+//   last.after(newGroup);
+// });
+// console.log();
+
 // Show
 let tasks = document.querySelector(".tasks");
 let addBtn = document.querySelector(".add-task");
@@ -124,7 +138,7 @@ let saveTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 function showTasks(tasksInJson) {
   tasks.innerHTML = "";
-  console.log(tasksInJson);
+  // console.log(tasksInJson);
   if (tasksInJson.length > 0) {
     tasks.style.backgroundColor = "var(--main-color)";
     for (let i = 0; i < tasksInJson.length; i++) {
@@ -146,8 +160,6 @@ function showTasks(tasksInJson) {
       } else {
         continue;
       }
-      // console.log("tasksInJson[i].groupName = " + tasksInJson[i].groupName);
-      // console.log("switchNow = " + switchNow);
     }
   }
 }
